@@ -14,3 +14,9 @@
 	background-color: #222;
 	color: #fff;
 }
+input.ng-invalid.ng-dirty.form-validation {
+	background-color: pink;
+}
+input.ng-valid.ng-dirty.form-validation {
+	background-color: #2780E3;
+}

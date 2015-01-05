@@ -4,7 +4,7 @@
 		<div class="col-md-9">
 			<h1>Ads</h1>
 			<ul id="ul">
-				<li ng-repeat="ad in data.ads | filter:{categoryId: curentCategory.id} | filter:{townId: town.id}">
+				<li ng-repeat="ad in data.ads | filter:{townId: currentTown.id} | filter:{categoryId: curentCategory.id}">
 					<div class="container well">
 						<div class="row">
 							<div class="col-md-9">
@@ -52,18 +52,18 @@
               <div class="panel panel-default">
                 <div class="panel-heading colorHeader">Category</div>
                 <div class="panel-body">
-                	<a href="#" id="" ng-click="setCurrentCategory(null)">All</a>
+                	<a href="" id="" ng-click="setCurrentCategory(null)">All</a>
                 	<div ng-repeat="category in categories">
-         				<a href="#" id="{{category.id}}" ng-click="setCurrentCategory(category)">{{ category.name }}
+         				<p><a href="" id="{{category.id}}" ng-click="setCurrentCategory(category)">{{ category.name }}</a></p>
          			</div>
                 </div>
               </div>
               <div class="panel panel-default">
                 <div class="panel-heading colorHeader">Town</div>
                 <div class="panel-body">
-                	<a href="#" ng-click="setCurrentTown(null)">All</a>
+                	<a href="" ng-click="setCurrentTown(null)">All</a>
                 	<div ng-repeat="town in towns">
-         				<a href="#" ng-click="setCurrentTown(town)">{{ town.name }}</a>
+     					<p><a href="" id="{{town.id}}" ng-click="setCurrentTown(town)">{{ town.name }}</a></p>
          			</div>
                 </div>
               </div>

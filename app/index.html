@@ -17,15 +17,17 @@
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">
             <li>
-              <a href="#/register" id="themes">Register <span class="caret"></span></a>
+              <a href="#/register" id="themes" ng-click="showTitle('Registration', true)">Register <span class="caret"></span></a>
             </li>
             <li>
-              <a href="#/login" ng-click="change()">Login</a>
+              <a href="#/login" ng-click="showTitle('Login', true)">Login</a>
             </li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" target="_self">{{ home }}</a></li>
+            <li><a href="" target="_self" ng-show="titleHeader">{{ titleName }}</a></li>
+            <li><a href="#" target="_self" ng-click="showTitle('', false)">{{ home }}</a></li>
+             <li><a href="" target="_self" ng-show="showGreeting">{{ greeting }}</a></li>
             <li><a href="#/logout" target="_self">Logout</a></li>
           </ul>
 
@@ -36,11 +38,19 @@
 		
 	</div>
 
+<div 
+  data-pagination="" data-num-pages="numPages()" 
+  data-current-page="currentPage" data-max-size="maxSize"  
+  data-boundary-links="true">
+</div>
+
 	<script src="lib/angular/angular.js"></script>
 	<script src="lib/angular/angular-route.js"></script>
 	<script src="lib/angular/angular-resource.js"></script>
+  <acript src="lib/bootstrap/ui-bootstrap-tpls-0.12.0.min.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/controllers/MainController.js"></script>
 	<script src="js/services/mainPage.js"></script>
+  <script src="js/services/userData.js"></script>
 </body>
 </html>
