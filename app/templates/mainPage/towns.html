@@ -1,0 +1,9 @@
+<div class="panel panel-default">
+	<div class="panel-heading colorHeader">Town</div>
+	<div class="panel-body">
+		<a href="" ng-click="setCurrentTown(null)">All</a>
+		<div ng-repeat="town in towns">
+				<p><a href="" id="{{town.id}}" ng-click="setCurrentTown(town)">{{ town.name }}</a></p>
+			</div>
+	</div>
+</div>

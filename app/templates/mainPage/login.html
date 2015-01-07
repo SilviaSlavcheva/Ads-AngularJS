@@ -2,25 +2,25 @@
 <div class="row">
   <div class="col-lg-6">
 	<div class="well bs-component">
-              <form class="form-horizontal">
+              <form class="form-horizontal" name="loginUser">
                 <fieldset>
                   <legend>Login</legend>
                   <div class="form-group">
                     <label for="inputUsername" class="col-lg-2 control-label">Username</label>
                     <div class="col-lg-10">
-                      <input type="text" class="form-control" id="inputUsername" placeholder="Username">
+                      <input type="text" class="form-control form-validation" id="inputUsername" placeholder="Username" ng-model="user.username">
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="inputPassword" class="col-lg-2 control-label">Password</label>
                     <div class="col-lg-10">
-                      <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                      <input type="password" class="form-control form-validation" id="inputPassword" placeholder="Password" ng-minlength="2" ng-maxlength="100" ng-model="user.password">
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
-                      <button type="submit" class="btn btn-default">Login</button>
-                      <button class="btn btn-primary">Register here</button>
+                      <button type="submit" class="btn btn-default" ng-click="login(user, loginUser)">Login</button>
+                      <button class="btn btn-primary" ng-click="redirectToRegister()">Register here</button>
                     </div>
                   </div>
                 </fieldset>

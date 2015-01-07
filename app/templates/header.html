@@ -1,0 +1,31 @@
+
+<div class="navbar navbar-default" ng-controller="HeaderController">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="../" class="navbar-brand">Ads-AngularJs</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="#/register" id="themes" ng-click="showTitle('Registration', true)">Register <span class="caret"></span></a>
+            </li>
+            <li>
+              <a href="#/login" ng-click="showTitle('Login', true)">Login</a>
+            </li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="" target="_self" ng-show="titleHeader">{{ titleName }}</a></li>
+            <li><a href="#/" target="_self" ng-click="showTitle('', false)">{{ home }}</a></li>
+             <li><a href="" target="_self" ng-show="showUserData">{{ username }}</a></li>
+            <li><a href="" target="_self" ng-click="logout()" ng-show="showUserData">{{ logoutTitle }}</a></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>

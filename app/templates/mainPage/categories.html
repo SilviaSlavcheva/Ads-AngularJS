@@ -1,0 +1,9 @@
+<div class="panel panel-default">
+	<div class="panel-heading colorHeader">Category</div>
+	<div class="panel-body">
+		<a href="" id="" ng-click="setCurrentCategory(null)">All</a>
+		<div ng-repeat="category in categories">
+				<p><a href="" id="{{category.id}}" ng-click="setCurrentCategory(category)">{{ category.name }}</a></p>
+			</div>
+	</div>
+</div>

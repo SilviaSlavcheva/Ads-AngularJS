@@ -1,0 +1,46 @@
+<div>
+	<img src="images/loading.gif" ng-hide="ready" alt="" class="imgLoding">
+	<ul id="ul" ng-cloak>
+		<li ng-repeat="ad in allAds.ads">
+			<div class="container well">
+				<div class="row">
+					<div class="col-md-9">
+						<h2 class="pull-left">
+							{{ ad.title}}
+						</h2>
+					</div>
+					<div class="col-md-3">
+						<span class="pull-right">
+							{{ad.date | date: 'd-MMM-yyyy'}}
+						</span>
+					</div>
+				</div>
+				<div>{{curentCategory.name}}</div>
+				<div class="row">
+						<div class="col-md-4">
+							<div class="image-container">
+								<img src="" ng-src="{{ ad.imageDataUrl || defaultImage}}" class="imageSize">
+							</div>
+						</div>
+						<div class="col-md-8">
+							<div class="well">
+								{{ ad.text }}
+							</div>
+							<div class="row"> 
+								<div class="col-md-2 centerDiv">Name: </div>
+								<div class="col-md-7 well well-sm">{{ad.ownerName}}</div>
+							</div>
+							<div class="row"> 
+								<div class="col-md-2 centerDiv">Email: </div>
+								<div class="col-md-7 well well-sm">{{ ad.ownerEmail }}</div>
+							</div>
+							<div class="row"> 
+								<div class="col-md-2 centerDiv">Phone: </div>
+								<div class="col-md-7 well well-sm">{{ ad.ownerPhone }}</div>
+							</div>
+						</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
