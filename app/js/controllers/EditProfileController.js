@@ -7,8 +7,6 @@ app.controller('EditProfileController', function($scope, $location, $rootScope, 
 		console.log(data);
 	})
 
-
-
 	allTowns.getAllTowns()
 	.$promise 
 	.then(function(data) {
@@ -34,7 +32,6 @@ app.controller('EditProfileController', function($scope, $location, $rootScope, 
 	$scope.cancel = function cancel() {
 		$location.path('/userProfile');
 	}
-
 
 	$scope.changePassword = function changePassword(password, changePass) {
 		editProfileData.changeUserPassword(password)
