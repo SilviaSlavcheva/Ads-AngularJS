@@ -55,6 +55,20 @@ app.controller('HeaderController', function($scope, $location, headerData, authe
 		};
 	});
 
+	$scope.$on('update', function(data) {
+		if (authentication.isLoggedIn) {
+			$scope.nameUser = authentication.getCurrentUser();
+
+			if ($scope.nameUser) {
+				$scope.logoutTitle = 'Logout';
+				$scope.username = $scope.nameUser;
+				$scope.showUserData = true;
+				$scope.titleHeader = false;
+				$scope.titleName = '';
+			};
+		};
+	});
+
 
 
 
