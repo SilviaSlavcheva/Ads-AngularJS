@@ -16,13 +16,13 @@
 	      </div>
 	    </div>
 	    <div class="form-group">
-	      <label for="inputImage" class="col-lg-2 control-label">Title: </label>
+	      <label for="inputImage" class="col-lg-2 control-label">Image: </label>
 	      <div class="col-lg-10">
-	        <input type="text" alt="Browser" class="form-control" id="inputImage" placeholder="ImageUrl" ng-model="ad.imageDataUrl">
+	        <input type="file" class="form-control" id="inputImage" placeholder="ImageUrl" ng-model='ad.imageDataUrl' base-sixty-four-input>
 	      </div>
 	    </div>
 	    <div flow-init>
-	    	<div class="thumbnail" ng-show="!$flow.files.length"  ng-model="ad.imageDataUrl">
+	    	<div class="thumbnail" ng-show="!$flow.files.length">
 			  <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image">
 			</div>
 			<div class="thumbnail ng-hide" ng-show="$flow.files.length">

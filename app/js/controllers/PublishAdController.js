@@ -20,6 +20,10 @@ allCategories.getAllCategories()
 
 
 	$scope.addAd = function addAd(ad) {
+		console.log(ad);
+		console.log(ad.imageDataUrl);
+		ad.imageDataUrl = 'data:' + ad.imageDataUrl.filetype + ';base64,' + ad.imageDataUrl.base64;
+		console.log(ad.imageDataUrl);
 		publishNewAd.createNewAd(ad)
 		.$promise 
 		.then(function(data) {
