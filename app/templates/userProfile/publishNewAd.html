@@ -1,1 +1,72 @@
-<h1>Publish New Ad</h1>
+<div class="row">
+	<div class="cal-md-6">
+	<form class="form-horizontal" name="newAd">
+	  <fieldset>
+	    <legend>Publish new Ad</legend>
+	    <div class="form-group">
+	      <label for="inputTitle" class="col-lg-2 control-label">Title: </label>
+	      <div class="col-lg-10">
+	        <input type="text" class="form-control" id="inputTitle" placeholder="Title" ng-model="ad.title" required>
+	      </div>
+	    </div>
+	    <div class="form-group">
+	      <label for="inputText" class="col-lg-2 control-label">Text</label>
+	      <div class="col-lg-10">
+	        <textarea class="form-control" rows="3" id="inputText" ng-model="ad.text" required></textarea>
+	      </div>
+	    </div>
+	    <div class="form-group">
+	      <label for="inputImage" class="col-lg-2 control-label">Title: </label>
+	      <div class="col-lg-10">
+	        <input type="text" alt="Browser" class="form-control" id="inputImage" placeholder="ImageUrl" ng-model="ad.imageDataUrl">
+	      </div>
+	    </div>
+	    <div flow-init>
+	    	<div class="thumbnail" ng-show="!$flow.files.length"  ng-model="ad.imageDataUrl">
+			  <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image">
+			</div>
+			<div class="thumbnail ng-hide" ng-show="$flow.files.length">
+			  <img flow-img="$flow.files[0]">
+			</div>
+		<div>
+		  <span class="btn btn-primary" ng-show="!$flow.files.length" flow-btn="">Select image<input type="file" style="visibility: hidden; position: absolute;"></span>
+		  <span class="btn btn-info ng-hide" ng-show="$flow.files.length" flow-btn="">Change<input type="file" style="visibility: hidden; position: absolute;"></span>
+		  <span class="btn btn-danger ng-hide" ng-show="$flow.files.length" ng-click="$flow.cancel()">
+		    Remove
+		  </span>
+		</div>
+		<div>
+
+
+
+
+
+	    <div class="form-group">
+	        <label for="selectCategory" class="col-lg-2 control-label">Category</label>
+	        <div class="col-lg-10">
+	          <select class="form-control" id="selectCategory" ng-model="ad.categoryId">
+	            <option selected ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
+	          </select>
+	   	 	</div>
+		</div>
+	    <div class="form-group">
+	        <label for="select" class="col-lg-2 control-label">Town</label>
+	        <div class="col-lg-10">
+	          <select class="form-control" id="select" ng-model="ad.townId">
+	            <option selected ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
+	          </select>
+	     	</div>
+	 	</div>
+	    <div class="form-group">
+	      <div class="col-lg-10 col-lg-offset-2">
+	        <button class="btn btn-default" ng-click="addAd(ad, newAd)">Publish</button>
+	        <button class="btn btn-primary" ng-click="cance()">Cancel</button>
+	      </div>
+		</div>
+	  </fieldset>
+	</form>
+</div>
+<div class="col-md-4">
+	<img src="" ng-src="{{ad.imagedataUrl}}"></span>
+</div>
+</div>

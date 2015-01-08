@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('softUniApp', ['ngRoute', 'ngResource']);
+var app = angular.module('softUniApp', ['ngRoute', 'ngResource', 'flow']);
 
 app.constant('baseServiceUrl', 'http://localhost:1337/api');
 app.constant('pageSize', 2);

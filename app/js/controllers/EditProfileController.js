@@ -1,17 +1,17 @@
 app.controller('EditProfileController', function($scope, $location, $rootScope, editProfileData, authentication, allTowns, notify) {
-	console.log(authentication.getHeaders());
+	//console.log(authentication.getHeaders());
 	editProfileData.getUserProfile()
 	.$promise 
 	.then(function(data) {
 		$scope.user = data;
-		console.log(data);
+		//console.log(data);
 	})
 
 	allTowns.getAllTowns()
 	.$promise 
 	.then(function(data) {
 		$scope.towns = data;
-		console.log(data);
+		//console.log(data);
 	}, function(error) {
 		notify.showError(error);
 	});
