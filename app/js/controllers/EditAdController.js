@@ -1,4 +1,4 @@
-app.controller('EditAdController', function($scope, myAdsData, allCategories, allTowns, notify) {
+app.controller('EditAdController', function($scope, $location, myAdsData, allCategories, allTowns, notify) {
 
 	//$scope.$on('editButton', function(adId) {
 		//console.log(adId);
@@ -38,10 +38,14 @@ app.controller('EditAdController', function($scope, myAdsData, allCategories, al
 		.$promise
 		.then(function(data) {
 			console.log(data);
-			notify.showInfo("Edit Ad succeessfully!");
+			notify.showInfo("Advertisement edited. Don't forget to submit it for publishing.");
 		}, function(error) {
 			notify.showError(error);
 		});
+	}
+
+	$scope.cancel = function cancel() {
+		$location.path('/userProfile');
 	}
 
 })
