@@ -67,6 +67,7 @@ app.factory('myAdsData', function($resource, $http, baseServiceUrl, authenticati
 		.delete({id: id});
 	}
 
+var statusAd = {};
 var idAd = {};
 	function setUserAdId(adId) {
 		idAd.id = adId;
@@ -74,6 +75,18 @@ var idAd = {};
 
 	function getUserAdId() {
 		return idAd;
+	}
+
+	function setStatusAd(status) {
+		if (status) {
+			statusAd.status = status;
+		} else {
+			statusAd = {};
+		}
+	}
+
+	function getStatusAd() {
+		return statusAd;
 	}
 
 	return {
@@ -84,6 +97,8 @@ var idAd = {};
 		editUserAd: editUserAd,
 		deleteUserAd: deleteUserAd,
 		setUserAdId: setUserAdId,
-		getUserAdId: getUserAdId
+		getUserAdId: getUserAdId,
+		setStatusAd: setStatusAd,
+		getStatusAd: getStatusAd
 	}
 })

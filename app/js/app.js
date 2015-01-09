@@ -50,6 +50,18 @@ app.config(function($routeProvider) {
 		templateUrl: 'templates/userProfile/deleteAdPage.html',
 		controller: 'MyAdsController'
 	});
+	$routeProvider.when('/user/published', {
+		templateUrl: 'templates/userProfile/publishedUserAds.html',
+		controller: 'MyAdsController'
+	});
+	$routeProvider.when('/user/waitingApproval', {
+		templateUrl: 'templates/userProfile/waitingApprovalUserAds.html',
+		controller: 'MyAdsController'
+	});
+	$routeProvider.when('/user/rejected', {
+		templateUrl: 'templates/userProfile/rejectedUserAds.html',
+		controller: 'MyAdsController'
+	});
 	$routeProvider.otherwise({redirectTo: '/'});
 });
 

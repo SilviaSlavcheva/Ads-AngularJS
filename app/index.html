@@ -6,17 +6,13 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/app.css" />
 </head>
-<body ng-app="softUniApp">
+<body ng-app="softUniApp" ng-controller="MainController">
 	<header ng-include="'templates/header.html'" ng-contoller="HeaderContoller"></header>
 	<div ng-view class="container">
 		
 	</div>
 
-<div 
-  data-pagination="" data-num-pages="numPages()" 
-  data-current-page="currentPage" data-max-size="maxSize"  
-  data-boundary-links="true">
-</div>
+   <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></pagination>
 <footer id="app-footer">
     &copy; 2014 by Software University Foundation, No Rights Reserved
 </footer>

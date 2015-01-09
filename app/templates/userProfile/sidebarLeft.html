@@ -1,8 +1,8 @@
-<div>
+<div ng-controller="MyAdsController">
 <ul class="breadcrumb">
  <li class="active">Navigation</li>
   <li><a href="#/userProfile">Home</a></li>
-  <li><a href="#/user/ads">My Ads</a></li>
+  <li><a href="#/user/ads" ng-click="setStatus(null)">My Ads</a></li>
   <li><a href="#/publishNewAd">Publish New Ad</a></li>
   <li><a href="#/editProfile">Edit Profile</a></li>
 </ul>

@@ -1,7 +1,12 @@
 app.controller('MyAdsController', function($scope, $location, $rootScope, myAdsData, authentication, allCategories, allTowns, notify) {
 	if (authentication.isLoggedIn()) {
+	$scope.setStatus = function setStatus(status) {
+		myAdsData.setStatusAd(status);
+		console.log(status);
+	}
 
-	myAdsData.getAllMyAds() 
+
+	myAdsData.getAllMyAds(myAdsData.getStatusAd()) 
 	.$promise
 	.then(function(data) {
 		$scope.allMyAds = data;
@@ -11,16 +16,16 @@ app.controller('MyAdsController', function($scope, $location, $rootScope, myAdsD
 		notify.showError(error);
 	});
 	
-	var status = {status: 'Inactive'};
-	myAdsData.getAllMyAds(status) 
-	.$promise
-	.then(function(data) {
-		$scope.allInactiveAds = data;
-		// console.log(data);
-		// notify.showInfo("Successful!");
-	}, function(error) {
-		notify.showError(error);
-	});
+	// var status = {status: 'Inactive'};
+	// myAdsData.getAllMyAds(status) 
+	// .$promise
+	// .then(function(data) {
+	// 	$scope.allInactiveAds = data;
+	// 	// console.log(data);
+	// 	// notify.showInfo("Successful!");
+	// }, function(error) {
+	// 	notify.showError(error);
+	// });
 
 	$scope.deactivateAd = function deactivateAd(adId, ad) {
 		myAdsData.editMyAd(adId, ad)

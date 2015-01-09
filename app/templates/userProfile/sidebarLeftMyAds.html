@@ -1,9 +1,10 @@
-<div>
+<div ng-controller="MyAdsController">
 <ul class="breadcrumb">
  <li class="active">MyAds</li>
-  <li><a href="#/user/publishedADS">Published</a></li>
-  <li><a href="#/user/waitingApprovalAds">Waiting Approval</a></li>
-  <li><a href="#/user/inactiveAds">Inactive</a></li>
-  <li><a href="#/user/rejectedAds">Rejected</a></li>
+  <li><a href="#/user/ads" ng-click="setStatus(null)">All</a></li>
+  <li><a href="#/user/published" ng-click="setStatus('Published')">Published</a></li>
+  <li><a href="#/user/waitingApproval" ng-click="setStatus('WaitingApproval')">Waiting Approval</a></li>
+  <li><a href="#/user/inactiveAds" ng-click="setStatus('Inactive')">Inactive</a></li>
+  <li><a href="#/user/rejected" ng-click="setStatus('Rejected')">Rejected</a></li>
 </ul>
 </div>
