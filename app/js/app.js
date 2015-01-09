@@ -34,6 +34,14 @@ app.config(function($routeProvider) {
 		templateUrl: 'templates/userProfile/publishNewAdPage.html',
 		controller: 'PublishAdController'
 	})
+	$routeProvider.when('/user/ads', {
+		templateUrl: 'templates/userProfile/allMyAds.html',
+		controller: 'MyAdsController'
+	});
+	$routeProvider.when('/user/inactiveAds', {
+		templateUrl: 'templates/userProfile/allInactiveAds.html',
+		controller: 'MyAdsController'
+	});
 	$routeProvider.otherwise({redirectTo: '/'});
 });
 

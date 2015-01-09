@@ -1,4 +1,5 @@
 app.controller('EditProfileController', function($scope, $location, $rootScope, editProfileData, authentication, allTowns, notify) {
+	if (authentication.isLoggedIn()) {
 	//console.log(authentication.getHeaders());
 	editProfileData.getUserProfile()
 	.$promise 
@@ -42,5 +43,8 @@ app.controller('EditProfileController', function($scope, $location, $rootScope, 
 			notify.showError(error);
 		})
 	}
+} else {
+	$location.path('');
+}
 
 })

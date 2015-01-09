@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="cal-md-6">
+	<div class="col-md-8">
 	<form class="form-horizontal" name="newAd">
 	  <fieldset>
 	    <legend>Publish new Ad</legend>
@@ -18,24 +18,13 @@
 	    <div class="form-group">
 	      <label for="inputImage" class="col-lg-2 control-label">Image: </label>
 	      <div class="col-lg-10">
-	        <input type="file" class="form-control" id="inputImage" placeholder="ImageUrl" ng-model='ad.imageDataUrl' base-sixty-four-input>
+	        <input type="file" class="form-control" id="inputImage" placeholder="ImageUrl" ng-model='ad.imageDataUrl' base-sixty-four-input >
 	      </div>
 	    </div>
-	    <div flow-init>
-	    	<div class="thumbnail" ng-show="!$flow.files.length">
-			  <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image">
-			</div>
-			<div class="thumbnail ng-hide" ng-show="$flow.files.length">
-			  <img flow-img="$flow.files[0]">
-			</div>
-		<div>
-		  <span class="btn btn-primary" ng-show="!$flow.files.length" flow-btn="">Select image<input type="file" style="visibility: hidden; position: absolute;"></span>
-		  <span class="btn btn-info ng-hide" ng-show="$flow.files.length" flow-btn="">Change<input type="file" style="visibility: hidden; position: absolute;"></span>
-		  <span class="btn btn-danger ng-hide" ng-show="$flow.files.length" ng-click="$flow.cancel()">
-		    Remove
-		  </span>
-		</div>
-		<div>
+	    
+
+
+
 
 
 
@@ -60,13 +49,14 @@
 	    <div class="form-group">
 	      <div class="col-lg-10 col-lg-offset-2">
 	        <button class="btn btn-default" ng-click="addAd(ad, newAd)">Publish</button>
-	        <button class="btn btn-primary" ng-click="cance()">Cancel</button>
+	        <button class="btn btn-primary" ng-click="cancel()">Cancel</button>
 	      </div>
 		</div>
 	  </fieldset>
 	</form>
 </div>
 <div class="col-md-4">
-	<img src="" ng-src="{{ad.imagedataUrl}}"></span>
+	<img src="" ng-src="{{ 'data:' + ad.imageDataUrl.filetype + ';base64,' + ad.imageDataUrl.base64}}" width="100%"></span>
+</div>
 </div>
 </div>

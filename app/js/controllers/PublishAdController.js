@@ -1,5 +1,5 @@
-app.controller('PublishAdController', function($scope, $location, publishNewAd, allTowns, allCategories, notify) {
-	
+app.controller('PublishAdController', function($scope, $location, publishNewAd, allTowns, allCategories, authentication, notify) {
+	if (authentication.isLoggedIn()) {
 	allTowns.getAllTowns()
 	.$promise 
 	.then(function(data) {
@@ -33,4 +33,13 @@ allCategories.getAllCategories()
 			notify.showError(error);
 		})
 	}
+
+	$scope.cancel = function cancel() {
+		$location.path('/userProfile');
+	}
+
+	$scope.defaultImage = 'http://img1.wikia.nocookie.net/__cb20120511110342/lou/images/a/ac/No_image_available.svg';
+} else {
+	$location.path('');
+}
 })
