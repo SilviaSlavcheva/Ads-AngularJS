@@ -42,6 +42,10 @@ app.config(function($routeProvider) {
 		templateUrl: 'templates/userProfile/allInactiveAds.html',
 		controller: 'MyAdsController'
 	});
+	$routeProvider.when('/user/editAd', {
+		templateUrl: 'templates/userProfile/editPage.html',
+		controller: 'MyAdsController'
+	});
 	$routeProvider.otherwise({redirectTo: '/'});
 });
 
