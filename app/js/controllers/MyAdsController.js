@@ -51,30 +51,14 @@ app.controller('MyAdsController', function($scope, $location, $rootScope, myAdsD
 	 	myAdsData.setUserAdId(adId);
 	 	console.log(myAdsData.getUserAdId());
 	 	$location.path('user/editAd');
-		// myAdsData.getUserAdById(adId)
-		// .$promise
-		// .then(function(data) {
-		// 	$scope.currentAd = data;
-		// 	$scope.hello = "Hello";
-		// 	//console.log(data);
-		// 	$rootScope.$broadcast('editButton', data);
-		// 	//$location.path('/user/editAd');
-		// }, function(error) {
-		// 	notify.showError(error);
-		// })
 	 }
 
-	$scope.deleteAd = function deleteAd(adId, ad) {
-		myAdsData.deleteUserAd(adId)
-		.$promise
-		.then(function(data) {
-			//console.log(data);
-			notify.showInfo('Delete Ad successfully!');
-		}, function(error) {
-			notify.showError(error);
-		})
+	 $scope.deleteAd = function deleteAd(adId, ad) {
+		myAdsData.setUserAdId(adId);
+	 	console.log(myAdsData.getUserAdId());
+	 	$location.path('user/deleteAd');
+	 }
 
-	}
 
 	$scope.defaultImage = 'http://img1.wikia.nocookie.net/__cb20120511110342/lou/images/a/ac/No_image_available.svg';
 	$scope.defautTownText = 'No Town';

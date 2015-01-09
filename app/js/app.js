@@ -46,6 +46,10 @@ app.config(function($routeProvider) {
 		templateUrl: 'templates/userProfile/editPage.html',
 		controller: 'MyAdsController'
 	});
+	$routeProvider.when('/user/deleteAd', {
+		templateUrl: 'templates/userProfile/deleteAdPage.html',
+		controller: 'MyAdsController'
+	});
 	$routeProvider.otherwise({redirectTo: '/'});
 });
 
