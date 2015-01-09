@@ -53,7 +53,7 @@ app.factory('myAdsData', function($resource, $http, baseServiceUrl, authenticati
 				method: 'PUT'
 			},
 		})
-		.update({id: adId}, ad);
+		.update({id: id}, ad);
 	}
 
 	function deleteUserAd(id) {
@@ -67,12 +67,23 @@ app.factory('myAdsData', function($resource, $http, baseServiceUrl, authenticati
 		.delete({id: id});
 	}
 
+var idAd = {};
+	function setUserAdId(adId) {
+		idAd.id = adId;
+	}
+
+	function getUserAdId() {
+		return idAd;
+	}
+
 	return {
 		getAllMyAds: getAllMyAds,
 		editMyAd: editMyAd,
 		publishAgainAd: publishAgainAd,
 		getUserAdById: getUserAdById,
 		editUserAd: editUserAd,
-		deleteUserAd: deleteUserAd
+		deleteUserAd: deleteUserAd,
+		setUserAdId: setUserAdId,
+		getUserAdId: getUserAdId
 	}
 })

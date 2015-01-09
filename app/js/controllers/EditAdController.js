@@ -1,15 +1,18 @@
-app.controller('EditAdController', function($scope, allCategories, allTowns, notify) {
-	$scope.edit = function edit(adId, ad) {
-		myAdsData.getUserAdById(adId)
+app.controller('EditAdController', function($scope, myAdsData, allCategories, allTowns, notify) {
+
+	//$scope.$on('editButton', function(adId) {
+		//console.log(adId);
+		console.log(myAdsData.getUserAdId());
+
+		myAdsData.getUserAdById(myAdsData.getUserAdId().id)
 		.$promise
 		.then(function(data) {
 			$scope.currentAd = data;
 			console.log(data);
-			$location.path('/user/editAd');
 		}, function(error) {
 			notify.showError(error);
 		})
-	}
+	//});
 
 	allCategories.getAllCategories()
 	.$promise
@@ -26,5 +29,19 @@ app.controller('EditAdController', function($scope, allCategories, allTowns, not
 	}, function(error) {
 		notify.showError(error);
 	})
+
+
+	 
+	$scope.editAd = function editAd(currentAd, editUserAd) {
+		console.log(currentAd);
+		myAdsData.editUserAd(currentAd.id, currentAd)
+		.$promise
+		.then(function(data) {
+			console.log(data);
+			notify.showInfo("Edit Ad succeessfully!");
+		}, function(error) {
+			notify.showError(error);
+		});
+	}
 
 })

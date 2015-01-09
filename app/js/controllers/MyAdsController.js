@@ -1,4 +1,4 @@
-app.controller('MyAdsController', function($scope, $location, myAdsData, authentication, allCategories, allTowns, notify) {
+app.controller('MyAdsController', function($scope, $location, $rootScope, myAdsData, authentication, allCategories, allTowns, notify) {
 	if (authentication.isLoggedIn()) {
 
 	myAdsData.getAllMyAds() 
@@ -47,21 +47,32 @@ app.controller('MyAdsController', function($scope, $location, myAdsData, authent
 
 
 
-	 $scope.edit = function edit(adId, ad) {
+	 $scope.editButton = function editButton(adId, ad) {
+	 	myAdsData.setUserAdId(adId);
+	 	console.log(myAdsData.getUserAdId());
 	 	$location.path('user/editAd');
-	// 	myAdsData.getUserAdById(adId)
-	// 	.$promise
-	// 	.then(function(data) {
-	// 		$scope.currentAd = data;
-	// 		$scope.hello = "Hello";
-	// 		console.log(data);
-	// 		$location.path('/user/editAd');
-	// 	}, function(error) {
-	// 		notify.showError(error);
-	// 	})
+		// myAdsData.getUserAdById(adId)
+		// .$promise
+		// .then(function(data) {
+		// 	$scope.currentAd = data;
+		// 	$scope.hello = "Hello";
+		// 	//console.log(data);
+		// 	$rootScope.$broadcast('editButton', data);
+		// 	//$location.path('/user/editAd');
+		// }, function(error) {
+		// 	notify.showError(error);
+		// })
 	 }
 
 	$scope.deleteAd = function deleteAd(adId, ad) {
+		myAdsData.deleteUserAd(adId)
+		.$promise
+		.then(function(data) {
+			//console.log(data);
+			notify.showInfo('Delete Ad successfully!');
+		}, function(error) {
+			notify.showError(error);
+		})
 
 	}
 
