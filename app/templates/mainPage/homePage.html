@@ -2,6 +2,7 @@
 	<div class="row">
 		<div class="col-md-9">
 			<div ng-include="'templates/mainPage/allPublicAds.html'" ng-controller="AllPublicAdsController"></div>
+			<header ng-include="'template/pagination/pagination.html'" ng-controller="AllPublicAdsController"></header>
 		</div>
 		<div class="col-md-3">
               <div ng-include="'templates/mainPage/categories.html'" ng-controller="AllCategoriesController"></div>
