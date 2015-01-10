@@ -12,7 +12,7 @@
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">
             <li>
-              <a href="#/register" id="themes" ng-click="showTitle('Registration', true)">Register <span class="caret"></span></a>
+              <a href="#/register" id="themes" ng-click="showTitle('Registration', true)">Register</a>
             </li>
             <li>
               <a href="#/login" ng-click="showTitle('Login', true)">Login</a>
@@ -22,7 +22,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="" target="_self" ng-show="titleHeader">{{ titleName }}</a></li>
             <li><a href="#/" target="_self" ng-click="showTitle('', false)">{{ home }}</a></li>
-             <li><a href="#/userProfile" target="_self" ng-show="showUserData">{{ username }}</a></li>
+             <li><a href="#/user/profile/show" target="_self" ng-show="showUserData">{{ username }}</a></li>
             <li><a href="" target="_self" ng-click="logout()" ng-show="showUserData">{{ logoutTitle }}</a></li>
           </ul>
 

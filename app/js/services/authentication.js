@@ -42,6 +42,15 @@ app.factory('authentication', function() {
 
          return currentUser;
     }
+
+    function isAnonymous() {
+
+    }
+
+    function isNormalUser() {
+
+    }
+
     return {
         saveUser: saveUserData,
         getUser: getUserData,
@@ -49,49 +58,11 @@ app.factory('authentication', function() {
         removeUser: removeUser,
         isAdmin: isAdmin,
         isLoggedIn: isLoggedIn,
-        getCurrentUser: getCurrentUser
+        getCurrentUser: getCurrentUser,
+        isAnonymous: isAnonymous,
+        isNormalUser: isNormalUser
     }
 
 })
 
-// app.factory('authService', 
-//     function ($resource, baseServiceUrl) {
-//         return {
-//             login: function(userData, success, error) {
-//                 // TODO
-//             },
 
-//             register: function(userData, success, error) {
-//                 // TODO
-//             },
-
-//             logout: function() {
-//                 // TODO
-//             },
-
-//             getCurrentUser : function() {
-//                 // TODO
-//             },s
-
-//             isAnonymous : function() {
-//                 // TODO
-//             },
-
-//             isLoggedIn : function() {
-//                 // TODO
-//             },
-
-//             isNormalUser : function() {
-//                 // TODO
-//             },
-
-//             isAdmin : function() {
-//                 // TODO
-//             },
-
-//             getAuthHeaders : function() {
-//                 // TODO
-//             }
-//         }
-//     }
-// );

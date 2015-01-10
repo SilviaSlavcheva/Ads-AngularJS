@@ -1,5 +1,5 @@
-app.controller('DeleteAdController', function($scope, $location, myAdsData, allTowns, allCategories, notify) {
-	myAdsData.getUserAdById(myAdsData.getUserAdId().id)
+app.controller('DeleteAdController', function($scope, $location, UserAdsData, allTownsData, allCategoriesData, notify) {
+	UserAdsData.getUserAdById(UserAdsData.getUserAdId().id)
 	.$promise
 	.then(function(data) {
 		$scope.currentAd = data;
@@ -9,7 +9,7 @@ app.controller('DeleteAdController', function($scope, $location, myAdsData, allT
 	});
 
 	$scope.deleteUserAd = function deleteUserAd(adId, ad) {
-		myAdsData.deleteUserAd(adId)
+		UserAdsData.deleteUserAd(adId)
 		.$promise
 		.then(function(data) {
 			//console.log(data);
@@ -19,7 +19,7 @@ app.controller('DeleteAdController', function($scope, $location, myAdsData, allT
 		})
 	}
 
-	allCategories.getAllCategories()
+	allCategoriesData.getAllCategories()
 	.$promise
 	.then(function(data) {
 		$scope.categories = data;
@@ -27,7 +27,7 @@ app.controller('DeleteAdController', function($scope, $location, myAdsData, allT
 		notify.showError(error);
 	});
 
-	allTowns.getAllTowns()
+	allTownsData.getAllTowns()
 	.$promise
 	.then(function(data) {
 		$scope.towns = data;
@@ -36,6 +36,6 @@ app.controller('DeleteAdController', function($scope, $location, myAdsData, allT
 	})
 
 	$scope.cancelDelete = function cancelDelete() {
-		$location.path('/userProfile');
+		$location.path('/user/profile/show');
 	}
 })

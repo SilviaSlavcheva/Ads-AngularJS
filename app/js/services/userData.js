@@ -1,3 +1,4 @@
+'use strict';
 app.factory('userData', function($resource, baseServiceUrl, authentication, notify) {
 	function registerUser(user) {
         var resource = $resource(baseServiceUrl +'/user/register')
@@ -7,7 +8,6 @@ app.factory('userData', function($resource, baseServiceUrl, authentication, noti
         	authentication.saveUser(data);
         	authentication.getHeaders();
         	var username = authentication.getCurrentUser(data);
-        	//console.log(username);
         	notify.showInfo("Rgistration successful!");
         }, function(error) {
         	notify.showError("The request is invalid: ", error);
@@ -47,4 +47,4 @@ app.factory('userData', function($resource, baseServiceUrl, authentication, noti
     register: registerUser,
     logout: logoutUser
    }
-})
+});

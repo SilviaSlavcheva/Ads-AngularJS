@@ -1,5 +1,5 @@
-app.controller('AllTownsController', function($scope, $rootScope, $log, allTowns, filter) {
-	allTowns.getAllTowns()
+app.controller('AllTownsController', function($scope, $rootScope, $log, allTownsData, filter) {
+	allTownsData.getAllTowns()
 	.$promise
 	.then(function(data) {
 		$scope.towns = data;

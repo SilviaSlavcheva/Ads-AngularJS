@@ -1,11 +1,9 @@
-app.controller('RegisterController', function($scope, $rootScope, $location, userData, authentication, allTowns, notify) {
+app.controller('RegisterController', function($scope, $rootScope, $location, userData, authentication, allTownsData) {
 
-	allTowns.getAllTowns()
+	allTownsData.getAllTowns()
 	.$promise
 	.then(function(data) {
 		$scope.towns = data;
-		//console.log(data);
-		notify.showInfo("All towns");
 	});
 
 	$scope.register = function(user, newUser) {
@@ -14,7 +12,7 @@ app.controller('RegisterController', function($scope, $rootScope, $location, use
 		.$promise 
 		.then(function(data) {
 			//console.log(data);
-			$location.path('/userProfile');
+			$location.path('/user/profile/show');
 			
 			$rootScope.$broadcast('register', data);
 			

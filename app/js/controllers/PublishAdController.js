@@ -1,6 +1,6 @@
-app.controller('PublishAdController', function($scope, $location, publishNewAd, allTowns, allCategories, authentication, notify) {
+app.controller('PublishAdController', function($scope, $location, publishNewAdData, allTownsData, allCategoriesData, authentication, notify) {
 	if (authentication.isLoggedIn()) {
-	allTowns.getAllTowns()
+	allTownsData.getAllTowns()
 	.$promise 
 	.then(function(data) {
 		$scope.towns = data;
@@ -9,7 +9,7 @@ app.controller('PublishAdController', function($scope, $location, publishNewAd, 
 		notify.showError(error);
 	});
 
-allCategories.getAllCategories()
+allCategoriesData.getAllCategories()
 	.$promise 
 	.then(function(data) {
 		$scope.categories = data;
@@ -24,7 +24,7 @@ allCategories.getAllCategories()
 		console.log(ad.imageDataUrl);
 		ad.imageDataUrl = 'data:' + ad.imageDataUrl.filetype + ';base64,' + ad.imageDataUrl.base64;
 		console.log(ad.imageDataUrl);
-		publishNewAd.createNewAd(ad)
+		publishNewAdData.createNewAd(ad)
 		.$promise 
 		.then(function(data) {
 			console.log(data)
@@ -35,7 +35,7 @@ allCategories.getAllCategories()
 	}
 
 	$scope.cancel = function cancel() {
-		$location.path('/userProfile');
+		$location.path('/user/profile/show');
 	}
 
 	$scope.defaultImage = 'http://img1.wikia.nocookie.net/__cb20120511110342/lou/images/a/ac/No_image_available.svg';

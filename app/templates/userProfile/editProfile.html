@@ -47,25 +47,25 @@
            <fieldset>
               <legend>Change Password</legend>
               	<div class="form-group">
-			        <label for="inputPassword" class="col-lg-2 control-label"> Old password</label>
-			        <div class="col-lg-10">
-			          <input type="password" class="form-control form-validation" id="inputPassword" ng-model="user.oldPassword" required="required" ng-minlength="2" ng-maxlength="100">
+			        <label for="inputPassword" class="col-lg-3 control-label"> Old password</label>
+			        <div class="col-lg-9">
+			          <input type="password" class="form-control form-validation" id="inputPassword" ng-model="password.oldPassword" required="required" ng-minlength="2" ng-maxlength="100">
 			        </div>
 			      </div>
 				<div class="form-group">
-			        <label for="inputNewPassword" class="col-lg-2 control-label">New Password</label>
-			        <div class="col-lg-10">
-			          <input type="password" class="form-control form-validation" id="inputNewPassword" placeholder="Password" ng-model="user.newpassword" required="required" ng-minlength="2" ng-maxlength="100">
+			        <label for="inputNewPassword" class="col-lg-3 control-label">New Password</label>
+			        <div class="col-lg-9">
+			          <input type="password" class="form-control form-validation" id="inputNewPassword" placeholder="Password" ng-model="password.newpassword" required="required" ng-minlength="2" ng-maxlength="100">
 			        </div>
 			     </div>
 			     <div class="form-group">
-			        <label for="inputConfirmNewPassword" class="col-lg-2 control-label">Confirm new password</label>
-			        <div class="col-lg-10">
-			          <input type="password" class="form-control form-validation" id="inputConfirmNewPassword" placeholder="Confirm password" ng-model="user.confirmPassword" required="required" ng-minlength="2" ng-maxlength="100">
+			        <label for="inputConfirmNewPassword" class="col-lg-3 control-label">Confirm new password</label>
+			        <div class="col-lg-9">
+			          <input type="password" class="form-control form-validation" id="inputConfirmNewPassword" placeholder="Confirm password" ng-model="password.confirmPassword" required="required" ng-minlength="2" ng-maxlength="100">
 			        </div>
 			     </div>
 			     <div class="form-group">
-			           <div class="col-lg-10 col-lg-offset-2">
+			           <div class="col-lg-10 col-lg-offset-3">
 			          <button class="btn btn-default" ng-click="changePassword(password, changePass)">Update</button>
 			          <button class="btn btn-primary" ng-click="cancel()">Cancel</button>
 			        </div>

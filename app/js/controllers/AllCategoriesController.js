@@ -1,5 +1,5 @@
-app.controller('AllCategoriesController', function($scope, $rootScope, $log, allCategories, filter) {
-	allCategories.getAllCategories()
+app.controller('AllCategoriesController', function($scope, $rootScope, $log, allCategoriesData, filter) {
+	allCategoriesData.getAllCategories()
 		.$promise
 		.then(function (data) {
 			$scope.categories = data;

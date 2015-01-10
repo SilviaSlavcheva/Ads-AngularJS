@@ -1,9 +1,9 @@
-app.controller('AllPublicAdsController', function($scope, $log, allPublicAds, filter) {
+app.controller('AllPublicAdsController', function($scope, $log, allPublicAdsData, filter) {
 	$scope.ready = false;
 
 	function loadPublicAds(filterParams) {
 		filterParams = filterParams || {};
-		allPublicAds.getAllAds(filterParams)
+		allPublicAdsData.getAllAds(filterParams)
 		.$promise
 		.then(function (data) {
 			$scope.allAds = data;

@@ -1,10 +1,10 @@
-app.controller('EditAdController', function($scope, $location, myAdsData, allCategories, allTowns, notify) {
+app.controller('EditAdController', function($scope, $location, UserAdsData, allCategoriesData, allTownsData, notify) {
 
 	//$scope.$on('editButton', function(adId) {
 		//console.log(adId);
-		console.log(myAdsData.getUserAdId());
+		console.log(UserAdsData.getUserAdId());
 
-		myAdsData.getUserAdById(myAdsData.getUserAdId().id)
+		UserAdsData.getUserAdById(UserAdsData.getUserAdId().id)
 		.$promise
 		.then(function(data) {
 			$scope.currentAd = data;
@@ -14,7 +14,7 @@ app.controller('EditAdController', function($scope, $location, myAdsData, allCat
 		})
 	//});
 
-	allCategories.getAllCategories()
+	allCategoriesData.getAllCategories()
 	.$promise
 	.then(function(data) {
 		$scope.categories = data;
@@ -22,7 +22,7 @@ app.controller('EditAdController', function($scope, $location, myAdsData, allCat
 		notify.showError(error);
 	});
 
-	allTowns.getAllTowns()
+	allTownsData.getAllTowns()
 	.$promise
 	.then(function(data) {
 		$scope.towns = data;
@@ -34,7 +34,7 @@ app.controller('EditAdController', function($scope, $location, myAdsData, allCat
 	 
 	$scope.editAd = function editAd(currentAd, editUserAd) {
 		console.log(currentAd);
-		myAdsData.editUserAd(currentAd.id, currentAd)
+		UserAdsData.editUserAd(currentAd.id, currentAd)
 		.$promise
 		.then(function(data) {
 			console.log(data);
@@ -45,7 +45,7 @@ app.controller('EditAdController', function($scope, $location, myAdsData, allCat
 	}
 
 	$scope.cancel = function cancel() {
-		$location.path('/userProfile');
+		$location.path('/user/profile/show');
 	}
 
 })

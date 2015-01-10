@@ -1,4 +1,4 @@
-app.factory('publishNewAd', function($resource, $http, baseServiceUrl, authentication) {
+app.factory('publishNewAdData', function($resource, $http, baseServiceUrl, authentication) {
 	$http.defaults.headers.common['Authorization'] = authentication.getHeaders().Authorization;
 	var resource = $resource(
 		baseServiceUrl + '/user/ads',

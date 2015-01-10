@@ -44,6 +44,13 @@
 								  <div class="panel-body">
 								    {{ad.status}}
 								  </div>
+						</div>
+						<a href="" class="btn btn-default" ng-click="editButton(ad.id, ad)">Edit</a>
+					
+						<a href="" class="btn btn-default" ng-click="publishAgain(ad.id, ad)">Publish Again</a>
+					
+						<a href="" class="btn btn-default" ng-click="deleteAd(ad.id, ad)">Delete</a>
+					</div>
 				</div>
 			</div>
 		</li>
