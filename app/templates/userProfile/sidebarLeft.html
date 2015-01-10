@@ -1,9 +1,9 @@
 <div ng-controller="UserAdsController">
 <ul class="breadcrumb">
  <li class="active">Navigation</li>
-  <li><a href="#/user/profile/show">Home</a></li>
+  <li><a href="#/user/profile/show" ng-click="setHome()">Home</a></li>
   <li><a href="#/user/ads" ng-click="setStatus(null)">My Ads</a></li>
-  <li><a href="#/user/publishNewAd">Publish New Ad</a></li>
-  <li><a href="#/user/editProfile">Edit Profile</a></li>
+  <li><a href="#/user/publishNewAd" ng-click="setPublishNewAd()">Publish New Ad</a></li>
+  <li><a href="#/user/editProfile" ng-click="setEditProfile()">Edit Profile</a></li>
 </ul>
 </div>

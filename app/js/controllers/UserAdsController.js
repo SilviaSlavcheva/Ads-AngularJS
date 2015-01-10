@@ -3,6 +3,7 @@ app.controller('UserAdsController', function($scope, $location, $rootScope, User
 		$scope.setStatus = function setStatus(status) {
 			UserAdsData.setStatusAd(status);
 			console.log(status);
+			$rootScope.$broadcast('setStatus', status);
 		};
 
 		UserAdsData.getAllUserAds(UserAdsData.getStatusAd()) 
@@ -37,12 +38,14 @@ app.controller('UserAdsController', function($scope, $location, $rootScope, User
 		 	UserAdsData.setUserAdId(adId);
 		 	console.log(UserAdsData.getUserAdId());
 		 	$location.path('user/editAd');
+		 	 $rootScope.$broadcast('editButton', adId);
 		 }
 
 		 $scope.deleteAd = function deleteAd(adId, ad) {
 			UserAdsData.setUserAdId(adId);
 		 	console.log(UserAdsData.getUserAdId());
 		 	$location.path('user/deleteAd');
+		 	 $rootScope.$broadcast('deleteAd', adId);
 		 }
 
 

@@ -11,9 +11,7 @@
 	<div ng-view class="container">
 		
 	</div>
-
-  <div> <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></pagination></div>
-  <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true"></pagination>
+<header ng-include="'templates/pagination/pagination.html'"></header>
 <footer id="app-footer">
     &copy; 2014 by Software University Foundation, No Rights Reserved
 </footer>
@@ -22,6 +20,7 @@
 	<script src="lib/angular/angular-resource.js"></script>
 	<script src="lib/jquery/jquery-2.1.3.js"></script>
 	<script src="lib/jquery.noty/jquery.noty.js"></script>
+
 	<script src="lib/bootstrap/bootstrap-3.1.1.js"></script>
 	<script src="lib/ui.bootstrap/ui.bootstrap.pagination-0.12.0.js"></script>
 	<script src="lib/flow/ng-flow-standalone.js"></script>
