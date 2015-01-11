@@ -15,11 +15,12 @@ app.controller('RegisterController',
 			userData.register(user)
 			.$promise 
 			.then(function(data) {
+				
 				$location.path('/user/profile/show');
 				
 				$rootScope.$broadcast('register', data);
-				console.log(authentication.getUser());
-				console.log(authentication.getCurrentUser);
+				//console.log(authentication.getUser());
+				//console.log(authentication.getCurrentUser);
 				
 			}, function(error) {
 				notify.showError('Registration failed.', error);

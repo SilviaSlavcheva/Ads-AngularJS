@@ -38,29 +38,33 @@ app.config(function($routeProvider) {
 		templateUrl: 'templates/userProfile/allUserAdsPage.html',
 		controller: 'UserAdsController'
 	});
-	$routeProvider.when('/user/inactiveAds', {
+	$routeProvider.when('/user/ads/inactive', {
 		templateUrl: 'templates/userProfile/allInactiveAds.html',
 		controller: 'UserAdsController'
 	});
-	$routeProvider.when('/user/editAd', {
+	$routeProvider.when('/user/ads/edit/:id', {
 		templateUrl: 'templates/userProfile/editPage.html',
 		controller: 'UserAdsController'
 	});
-	$routeProvider.when('/user/deleteAd', {
+	$routeProvider.when('/user/ads/delete/:id', {
 		templateUrl: 'templates/userProfile/deleteAdPage.html',
 		controller: 'UserAdsController'
 	});
-	$routeProvider.when('/user/publishedAds', {
+	$routeProvider.when('/user/ads/published', {
 		templateUrl: 'templates/userProfile/publishedUserAds.html',
 		controller: 'UserAdsController'
 	});
-	$routeProvider.when('/user/waitingApprovalAds', {
+	$routeProvider.when('/user/ads/waitingApproval', {
 		templateUrl: 'templates/userProfile/waitingApprovalUserAds.html',
 		controller: 'UserAdsController'
 	});
-	$routeProvider.when('/user/rejectedAds', {
+	$routeProvider.when('/user/ads/rejected', {
 		templateUrl: 'templates/userProfile/rejectedUserAds.html',
 		controller: 'UserAdsController'
+	});
+	$routeProvider.when('/admin/home', {
+		templateUrl: 'templates/adminProfile/homePageAdmin.html',
+		controller: 'AdminHomePageController'
 	});
 	$routeProvider.otherwise({redirectTo: '/'});
 });

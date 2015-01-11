@@ -18,7 +18,7 @@ app.controller('PublishAdController',
 			});
 
 $scope.ad = {};
- $scope.showDefautImage = true;
+ 
 			$scope.fileSelected = function(fileInputField) {
 	            delete $scope.ad.imageDataUrl;
 	            var file = fileInputField.files[0];

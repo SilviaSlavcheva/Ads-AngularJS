@@ -23,7 +23,7 @@ app.controller('EditProfileController',
 				editProfileData.editUserProfile(user)
 				.$promise
 				.then(function(data) {
-					notify.showInfo("Edit Profile succesfully!");
+					notify.showInfo("User profile successfully update!");
 					$location.path('/user/profile/show');
 					$rootScope.$broadcast('update', data);
 				}, function(error) {

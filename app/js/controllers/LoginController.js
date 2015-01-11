@@ -1,10 +1,16 @@
 'use strict';
-app.controller('LoginControlller', function($scope, $rootScope, $location, userData, notify) {
+app.controller('LoginControlller', function($scope, $rootScope, $location, userData, authentication, notify) {
 	$scope.login = function(user, loginUser) {
 		userData.login(user)
 		.$promise 
 		.then(function(data) {
-			$location.path('/user/profile/show');
+			console.log(authentication.isAdmin());
+			if (authentication.isAdmin()) {
+					$location.path('/admin/home');
+				} else {
+					$location.path('/user/profile/show');
+				}
+			//$location.path('/user/profile/show');
 			
 			$rootScope.$broadcast('login', data);
 			

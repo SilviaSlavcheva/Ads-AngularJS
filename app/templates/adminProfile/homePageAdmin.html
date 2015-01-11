@@ -1,0 +1,13 @@
+<div class="jumbotron"> 
+	<div ng-include="'templates/adminProfile/sidebarNavigation.html'" ></div>
+	<div ng-include="'templates/userProfile/sidebarLeftMyAds.html'" ></div>
+	<div class="row">
+		<div class="col-md-9">
+			<div ng-include="'templates/adminProfile/adsScreenAdmin.html'" ng-controller="AdminHomePageController"></div>
+		</div>
+		<div class="col-md-3">
+              <div ng-include="'templates/mainPage/categories.html'" ng-controller="AllCategoriesController"></div>
+              <div ng-include="'templates/mainPage/towns.html'" ng-controller="AllTownsController"></div>   
+		</div>
+	</div>
+</div>

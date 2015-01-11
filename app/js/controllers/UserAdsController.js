@@ -40,14 +40,15 @@ app.controller('UserAdsController',
 			 $scope.editButton = function editButton(adId, ad) {
 			 	UserAdsData.setUserAdId(adId);
 			 	//console.log(UserAdsData.getUserAdId());
-			 	$location.path('user/editAd');
+			 	$location.path('user/ads/edit/' + adId);
 			 	 $rootScope.$broadcast('editButton', adId);
 			 }
 
 			 $scope.deleteAd = function deleteAd(adId, ad) {
 				UserAdsData.setUserAdId(adId);
 			 	//console.log(UserAdsData.getUserAdId());
-			 	$location.path('user/deleteAd');
+			 	console.log(adId);
+			 	$location.path('user/ads/delete/' + adId);
 			 	 $rootScope.$broadcast('deleteAd', adId);
 			 }
 
