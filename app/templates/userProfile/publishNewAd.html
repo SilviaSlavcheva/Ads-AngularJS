@@ -16,9 +16,9 @@
 	      </div>
 	    </div>
 	    <div class="form-group">
-	      <label for="inputImage" class="col-lg-2 control-label">Image: </label>
+	      <label for="inputImage" class="col-lg-2 control-label" >Image: </label>
 	      <div class="col-lg-10">
-	        <input type="file" class="form-control" id="inputImage" placeholder="ImageUrl" ng-model='ad.imageDataUrl' base-sixty-four-input >
+	        <input type="file" class="form-control" id="inputImage" placeholder="ImageUrl" onchange="angular.element(this).scope().fileSelected(this)" >
 	      </div>
 	    </div>
 	    <div class="form-group">
@@ -47,7 +47,8 @@
 	</form>
 </div>
 <div class="col-md-4">
-	<div class="image-box"></div>
+	<div class="image-box col-lg-12"></div>
+	<div class="col-lg-12 show-defaut-image"><img src="" ng-src="{{ defaultImage }}" alt="" /></div>
 </div>
 </div>
 </div>

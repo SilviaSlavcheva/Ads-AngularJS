@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('userData', function($resource, baseServiceUrl, authentication) {
+app.factory('userData', function($resource, baseServiceUrl, authentication, notify) {
 
 	function registerUser(user) {
         var resource = $resource(baseServiceUrl +'/user/register')
@@ -12,9 +12,7 @@ app.factory('userData', function($resource, baseServiceUrl, authentication) {
         	var username = authentication.getUser(data);
             console.log(authentication.getUser());
             console.log(username);
-        	//notify.showInfo("Rgistration successful!");
-        }, function(error) {
-        	//notify.showError("Registration failed. ", error);
+        	notify.showInfo("Rgistration successful!");
         });
 
         return resource;
@@ -26,9 +24,7 @@ app.factory('userData', function($resource, baseServiceUrl, authentication) {
         resource.$promise
         .then(function(data) {
         	authentication.saveUser(data);
-        	//notify.showInfo("Login Successful!");
-        }, function(error) {
-        	//notify.showError("Login failed. ", error);
+        	notify.showInfo("Login Successful!");
         });
 
         return resource;

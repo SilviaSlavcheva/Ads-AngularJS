@@ -17,21 +17,40 @@ app.controller('PublishAdController',
 				notify.showError('Categories cannot be loaded.', error);
 			});
 
+$scope.ad = {};
+ $scope.showDefautImage = true;
+			$scope.fileSelected = function(fileInputField) {
+	            delete $scope.ad.imageDataUrl;
+	            var file = fileInputField.files[0];
+	            if (file.type.match(/image\/.*/)) {
+	                var reader = new FileReader();
+	                reader.onload = function() {
+	                    $scope.ad.imageDataUrl = reader.result;
+	                    $(".image-box").html("<img src='" + reader.result + "' width='100%'>");
+	                    $(".show-defaut-image").hide();
+	               
+	                };
+	                reader.readAsDataURL(file);
+	            } else {
+	                $(".image-box").html("<p>File type not supported!</p>");
+	            }
+	        };
+
 			$scope.addAd = function addAd(ad) {
-				console.log(ad);
-				console.log(ad.imageDataUrl);
-				if(ad.imageDataUrl) {
-					ad.imageDataUrl = 'data:' + ad.imageDataUrl.filetype + ';base64,' + ad.imageDataUrl.base64;
-					$(".image-box").html("<img src='" + 'data:' + ad.imageDataUrl.filetype + ';base64,' + ad.imageDataUrl.base64 + "'>");
-				}
-				console.log(ad.imageDataUrl);
+				// console.log(ad);
+				// console.log(ad.imageDataUrl);
+				// if(ad.imageDataUrl) {
+				// 	ad.imageDataUrl = 'data:' + ad.imageDataUrl.filetype + ';base64,' + ad.imageDataUrl.base64;
+				// 	$(".image-box").html("<img src='" + 'data:' + ad.imageDataUrl.filetype + ';base64,' + ad.imageDataUrl.base64 + "'>");
+				// }
+				// console.log(ad.imageDataUrl);
 				publishNewAdData.createNewAd(ad)
 				.$promise 
 				.then(function(data) {
 					console.log(data)
 					notify.showInfo('Advertisement submitted for approval. Once approvad, it will be published');
 				}, function(error) {
-					notify.showError(error);
+					notify.showError('The request is invalide.', error);
 				})
 			}
 
