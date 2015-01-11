@@ -1,5 +1,7 @@
 'use strict';
-app.factory('userData', function($resource, baseServiceUrl, authentication, notify) {
+
+app.factory('userData', function($resource, baseServiceUrl, authentication) {
+
 	function registerUser(user) {
         var resource = $resource(baseServiceUrl +'/user/register')
         .save(user);
@@ -7,10 +9,12 @@ app.factory('userData', function($resource, baseServiceUrl, authentication, noti
         .then(function(data) {
         	authentication.saveUser(data);
         	authentication.getHeaders();
-        	var username = authentication.getCurrentUser(data);
-        	notify.showInfo("Rgistration successful!");
+        	var username = authentication.getUser(data);
+            console.log(authentication.getUser());
+            console.log(username);
+        	//notify.showInfo("Rgistration successful!");
         }, function(error) {
-        	notify.showError("The request is invalid: ", error);
+        	//notify.showError("Registration failed. ", error);
         });
 
         return resource;
@@ -22,29 +26,28 @@ app.factory('userData', function($resource, baseServiceUrl, authentication, noti
         resource.$promise
         .then(function(data) {
         	authentication.saveUser(data);
-        	notify.showInfo("Login Successful!");
+        	//notify.showInfo("Login Successful!");
         }, function(error) {
-        	notify.showError("The request is invalid: ", error);
+        	//notify.showError("Login failed. ", error);
         });
 
         return resource;
     }
 
-    function logoutUser() {
-    	return $resource(baseServiceUrl +'/user/logout')
-        .save(user)
-        .$promise
-        .then(function(data) {
-        	authentication.removeUser();
-        	notify.showInfo("Logout successful!");
-        }, function(error) {
-        	notify.showError("The request is invalid: ", error);
-        });
-    }
+    // function logoutUser() {
+    // 	return $resource(baseServiceUrl +'/user/logout')
+    //     .save(user)
+    //     .$promise
+    //     .then(function(data) {
+    //     	authentication.removeUser();
+    //     	notify.showInfo("Logout successful!");
+    //     }, function(error) {
+    //     	notify.showError("The request is invalid: ", error);
+    //     });
+    // }
 
    return {
     login: loginUser,
-    register: registerUser,
-    logout: logoutUser
+    register: registerUser
    }
 });

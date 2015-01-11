@@ -1,3 +1,5 @@
+'use strict';
+
 app.factory('editProfileData', function($resource, $http, baseServiceUrl, authentication) {
 	$http.defaults.headers.common['Authorization'] = authentication.getHeaders().Authorization;
 	var resource = $resource(
@@ -32,4 +34,4 @@ app.factory('editProfileData', function($resource, $http, baseServiceUrl, authen
 		changeUserPassword: changeUserPassword,
 		editUserProfile: editUserProfile
 	}
-})
+});

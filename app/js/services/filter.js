@@ -1,3 +1,5 @@
+'use strict';
+
 app.factory('filter', function() {
 	var filterParams = {};
 
@@ -26,4 +28,4 @@ app.factory('filter', function() {
 		filterByTown: filterByTown,
 		getFilterParams: getFilterParams
 	}
-})
+});

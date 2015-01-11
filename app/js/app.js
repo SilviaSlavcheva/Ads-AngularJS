@@ -33,7 +33,7 @@ app.config(function($routeProvider) {
 	$routeProvider.when('/user/publishNewAd', {
 		templateUrl: 'templates/userProfile/publishNewAdPage.html',
 		controller: 'PublishAdController'
-	})
+	});
 	$routeProvider.when('/user/ads', {
 		templateUrl: 'templates/userProfile/allUserAdsPage.html',
 		controller: 'UserAdsController'

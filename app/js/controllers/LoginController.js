@@ -1,5 +1,5 @@
 'use strict';
-app.controller('LoginControlller', function($scope, $rootScope, $location, userData) {
+app.controller('LoginControlller', function($scope, $rootScope, $location, userData, notify) {
 	$scope.login = function(user, loginUser) {
 		userData.login(user)
 		.$promise 
@@ -8,10 +8,12 @@ app.controller('LoginControlller', function($scope, $rootScope, $location, userD
 			
 			$rootScope.$broadcast('login', data);
 			
+		}, function(error) {
+			notify.showError('Login failed.', error);
 		});
 	}
 
 	$scope.redirectToRegister = function() {
 		$location.path('/register');
 	}
-})
+});

@@ -2,64 +2,64 @@
 <div class="row">
   <div class="col-lg-6">
 	<div class="well bs-component">
-              <form class="form-horizontal" name="updateUser">
-                <fieldset>
-                  <legend>Edit Profile</legend>
-                  <div class="form-group">
-                    <label for="inputName" class="col-lg-2 control-label">Name: </label>
-                    <div class="col-lg-10">
-                      <input type="text" class="form-control form-validation" id="inputName"  ng-model="user.name">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputEmail" class="col-lg-2 control-label">Email: </label>
-                    <div class="col-lg-10">
-                      <input type="password" class="form-control form-validation" id="inputEmail"   ng-model="user.email">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputNumber" class="col-lg-2 control-label">Phone</label>
-                    <div class="col-lg-10">
-                      <input type="text" class="form-control" id="inputNumber" ng-model="user.phoneNumber">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="select" class="col-lg-2 control-label">Town</label>
-                    <div class="col-lg-10">
-                      <select class="form-control" id="select" ng-model="user.townId">
-                        <option selected ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
-                      </select>
-                  </div>
+        <form class="form-horizontal" name="updateUser">
+          <fieldset>
+            <legend>Edit Profile</legend>
+            <div class="form-group">
+              <label for="inputName" class="col-lg-2 control-label">Name: </label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control form-validation" id="inputName"  ng-model="user.name">
               </div>
-                  <div class="form-group">
-                    <div class="col-lg-10 col-lg-offset-2">
-                      <button class="btn btn-default" ng-click="update(user, updateUser)">Update</button>
-                      <button class="btn btn-primary" ng-click="cancel()">Cancel</button>
-                    </div>
-                  </div>
-                </fieldset>
-              </form>
-            <div id="source-button" class="btn btn-primary btn-xs" style="display: block;">&lt; &gt;</div></div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail" class="col-lg-2 control-label">Email: </label>
+              <div class="col-lg-10">
+                <input type="password" class="form-control form-validation" id="inputEmail"   ng-model="user.email">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputNumber" class="col-lg-2 control-label">Phone:</label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputNumber" ng-model="user.phoneNumber">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="select" class="col-lg-2 control-label">Town:</label>
+              <div class="col-lg-10">
+                <select class="form-control" id="select" ng-model="user.townId">
+                  <option selected ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
+                </select>
+            </div>
+        </div>
+            <div class="form-group">
+              <div class="col-lg-10 col-lg-offset-2">
+                <button class="btn btn-default" ng-click="update(user, updateUser)">Update</button>
+                <button class="btn btn-primary" ng-click="cancel()">Cancel</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
     </div>
+  </div>
 <div class="col-lg-6">
 	<div class="well bs-component">
         <form class="form-horizontal" name="changePass">
            <fieldset>
               <legend>Change Password</legend>
               	<div class="form-group">
-			        <label for="inputPassword" class="col-lg-3 control-label"> Old password</label>
+			        <label for="inputPassword" class="col-lg-3 control-label"> Old password:</label>
 			        <div class="col-lg-9">
 			          <input type="password" class="form-control form-validation" id="inputPassword" ng-model="password.oldPassword" required="required" ng-minlength="2" ng-maxlength="100">
 			        </div>
 			      </div>
 				<div class="form-group">
-			        <label for="inputNewPassword" class="col-lg-3 control-label">New Password</label>
+			        <label for="inputNewPassword" class="col-lg-3 control-label">New Password:</label>
 			        <div class="col-lg-9">
 			          <input type="password" class="form-control form-validation" id="inputNewPassword" placeholder="Password" ng-model="password.newpassword" required="required" ng-minlength="2" ng-maxlength="100">
 			        </div>
 			     </div>
 			     <div class="form-group">
-			        <label for="inputConfirmNewPassword" class="col-lg-3 control-label">Confirm new password</label>
+			        <label for="inputConfirmNewPassword" class="col-lg-3 control-label">Confirm new password:</label>
 			        <div class="col-lg-9">
 			          <input type="password" class="form-control form-validation" id="inputConfirmNewPassword" placeholder="Confirm password" ng-model="password.confirmPassword" required="required" ng-minlength="2" ng-maxlength="100">
 			        </div>

@@ -1,25 +1,25 @@
-app.controller('EditAdController', function($scope, $location, UserAdsData, allCategoriesData, allTownsData, notify) {
+'use strict';
 
-	//$scope.$on('editButton', function(adId) {
-		//console.log(adId);
-		console.log(UserAdsData.getUserAdId());
+app.controller('EditAdController', 
+	function($scope, $location, UserAdsData, allCategoriesData, allTownsData, notify) {
 
-		UserAdsData.getUserAdById(UserAdsData.getUserAdId().id)
-		.$promise
-		.then(function(data) {
-			$scope.currentAd = data;
-			console.log(data);
-		}, function(error) {
-			notify.showError(error);
-		})
-	//});
+	//console.log(UserAdsData.getUserAdId());
+	UserAdsData.getUserAdById(UserAdsData.getUserAdId().id)
+	.$promise
+	.then(function(data) {
+		$scope.currentAd = data;
+		//console.log(data);
+	}, function(error) {
+		notify.showError('get user ad failed.', error);
+	});
+
 
 	allCategoriesData.getAllCategories()
 	.$promise
 	.then(function(data) {
 		$scope.categories = data;
 	}, function(error) {
-		notify.showError(error);
+		notify.showError('Categories cannot  be loaded.', error);
 	});
 
 	allTownsData.getAllTowns()
@@ -27,22 +27,26 @@ app.controller('EditAdController', function($scope, $location, UserAdsData, allC
 	.then(function(data) {
 		$scope.towns = data;
 	}, function(error) {
-		notify.showError(error);
-	})
+		notify.showError('Towns cannot be loaded.', error);
+	});
 
 
 	 
 	$scope.editAd = function editAd(currentAd, editUserAd) {
-		console.log(currentAd);
+		//console.log(currentAd);
 		UserAdsData.editUserAd(currentAd.id, currentAd)
 		.$promise
 		.then(function(data) {
-			console.log(data);
+			//console.log(data);
 			notify.showInfo("Advertisement edited. Don't forget to submit it for publishing.");
 		}, function(error) {
-			notify.showError(error);
+			notify.showError('Edit user Ad failed.', error);
 		});
 	}
+
+	$scope.defaultImage = 'http://img1.wikia.nocookie.net/__cb20120511110342/lou/images/a/ac/No_image_available.svg';
+	$scope.defautTownText = 'No Town';
+	$scope.defautCategoryText = 'No Category';
 
 	$scope.cancel = function cancel() {
 		$location.path('/user/profile/show');

@@ -1,41 +1,44 @@
-app.controller('DeleteAdController', function($scope, $location, UserAdsData, allTownsData, allCategoriesData, notify) {
-	UserAdsData.getUserAdById(UserAdsData.getUserAdId().id)
-	.$promise
-	.then(function(data) {
-		$scope.currentAd = data;
-		console.log(data);
-	}, function(error) {
-		notify.showError(error);
-	});
+'use strict';
 
-	$scope.deleteUserAd = function deleteUserAd(adId, ad) {
-		UserAdsData.deleteUserAd(adId)
+app.controller('DeleteAdController', 
+	function($scope, $location, UserAdsData, allTownsData, allCategoriesData, notify) {
+
+		UserAdsData.getUserAdById(UserAdsData.getUserAdId().id)
 		.$promise
 		.then(function(data) {
+			$scope.currentAd = data;
 			//console.log(data);
-			notify.showInfo('Delete Ad successfully!');
 		}, function(error) {
-			notify.showError(error);
-		})
-	}
+			notify.showError('Get user ad failed.', error);
+		});
 
-	allCategoriesData.getAllCategories()
-	.$promise
-	.then(function(data) {
-		$scope.categories = data;
-	}, function(error) {
-		notify.showError(error);
-	});
+		$scope.deleteUserAd = function deleteUserAd(adId, ad) {
+			UserAdsData.deleteUserAd(adId)
+			.$promise
+			.then(function(data) {
+				notify.showInfo('Delete Ad successfully!');
+			}, function(error) {
+				notify.showError('Delete ad failed.', error);
+			});
+		}
 
-	allTownsData.getAllTowns()
-	.$promise
-	.then(function(data) {
-		$scope.towns = data;
-	}, function(error) {
-		notify.showError(error);
-	})
+		allCategoriesData.getAllCategories()
+		.$promise
+		.then(function(data) {
+			$scope.categories = data;
+		}, function(error) {
+			notify.showError('Categories cannot be loaded.', error);
+		});
 
-	$scope.cancelDelete = function cancelDelete() {
-		$location.path('/user/profile/show');
-	}
-})
+		allTownsData.getAllTowns()
+		.$promise
+		.then(function(data) {
+			$scope.towns = data;
+		}, function(error) {
+			notify.showError('Towns cannot be loaded', error);
+		});
+
+		$scope.cancelDelete = function cancelDelete() {
+			$location.path('/user/profile/show');
+		}
+});

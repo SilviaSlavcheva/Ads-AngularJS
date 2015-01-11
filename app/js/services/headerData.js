@@ -1,6 +1,9 @@
-app.factory('headerData', function($resource) {
+'use strict';
+
+app.factory('headerData', function($resource, baseServiceUrl) {
 	var resource = $resource(
-		'http://localhost:1337/api/user/ads/:id', 
+		baseServiceUrl + '/user/ads/:id', 
+		//'http://localhost:1337/api/user/ads/:id', 
 		{id: '@id'}, 
 		{ update: {
 			method: 'PUT'
@@ -15,4 +18,4 @@ app.factory('headerData', function($resource) {
 	return {
 		getUsername: getUsername
 	}
-})
+});

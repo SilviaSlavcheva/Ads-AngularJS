@@ -1,3 +1,5 @@
+'use strict';
+
 app.factory('allCategoriesData', function($resource, baseServiceUrl) {
 	var resource = $resource(
 		baseServiceUrl + '/categories', 
@@ -14,4 +16,4 @@ app.factory('allCategoriesData', function($resource, baseServiceUrl) {
 	return {
 		getAllCategories: getAllCategories
 	}
-})
+});

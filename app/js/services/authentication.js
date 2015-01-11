@@ -1,4 +1,5 @@
 'use strict';
+
 app.factory('authentication', function() {
     var key = 'user';
 
@@ -63,6 +64,6 @@ app.factory('authentication', function() {
         isNormalUser: isNormalUser
     }
 
-})
+});
 
 

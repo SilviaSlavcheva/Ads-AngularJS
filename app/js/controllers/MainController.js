@@ -1,13 +1,11 @@
+'use strict';
+
 app.controller('MainController', function($scope,$log, $location, $rootScope, authentication) {
 	$scope.authentication = authentication;
 
-  $scope.setHome = function setHome(data) {
+    $scope.setHome = function setHome(data) {
       $rootScope.$broadcast('setHome', data);
     }
-
-    //  $scope.setStatus = function setStatus(data) {
-    //   $rootScope.$broadcast('setStatus', data);
-    // }
 
      $scope.setPublishNewAd = function setPublishNewAd(data) {
       $rootScope.$broadcast('setPublishNewAd', data);
@@ -16,20 +14,9 @@ app.controller('MainController', function($scope,$log, $location, $rootScope, au
      $scope.setEditProfile = function setEditProfile(data) {
       $rootScope.$broadcast('setEditProfile', data);
     }
+
+    $scope.defaultImage = 'http://img1.wikia.nocookie.net/__cb20120511110342/lou/images/a/ac/No_image_available.svg';
+    $scope.defautTownText = 'No Town';
+    $scope.defautCategoryText = 'No Category';
 	
-
-	$scope.totalItems = 64;
-  $scope.currentPage = 1;
-
-  $scope.setPage = function (pageNo) {
-    $scope.currentPage = pageNo;
-  };
-
-  $scope.pageChanged = function() {
-    $log.log('Page changed to: ' + $scope.currentPage);
-  };
-
-  $scope.maxSize = 5;
-  $scope.bigTotalItems = 175;
-  $scope.bigCurrentPage = 1;
 });

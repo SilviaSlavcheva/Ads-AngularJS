@@ -10,7 +10,7 @@
 	      </div>
 	    </div>
 	    <div class="form-group">
-	      <label for="inputText" class="col-lg-2 control-label">Text</label>
+	      <label for="inputText" class="col-lg-2 control-label">Text:</label>
 	      <div class="col-lg-10">
 	        <textarea class="form-control" rows="3" id="inputText" ng-model="ad.text" required></textarea>
 	      </div>
@@ -21,11 +21,8 @@
 	        <input type="file" class="form-control" id="inputImage" placeholder="ImageUrl" ng-model='ad.imageDataUrl' base-sixty-four-input >
 	      </div>
 	    </div>
-	    
-
-
 	    <div class="form-group">
-	        <label for="selectCategory" class="col-lg-2 control-label">Category</label>
+	        <label for="selectCategory" class="col-lg-2 control-label">Category:</label>
 	        <div class="col-lg-10">
 	          <select class="form-control" id="selectCategory" ng-model="ad.categoryId">
 	            <option selected ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
@@ -33,7 +30,7 @@
 	   	 	</div>
 		</div>
 	    <div class="form-group">
-	        <label for="select" class="col-lg-2 control-label">Town</label>
+	        <label for="select" class="col-lg-2 control-label">Town:</label>
 	        <div class="col-lg-10">
 	          <select class="form-control" id="select" ng-model="ad.townId">
 	            <option selected ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
