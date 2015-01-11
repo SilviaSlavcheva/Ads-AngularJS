@@ -60,6 +60,17 @@ app.factory('adminData', function($resource, $http, baseServiceUrl, authenticati
 			.get({id: id});
 		}
 
+		function editAd(id, ad) {
+		return $resource(
+			baseServiceUrl +'/admin/ads/:id',
+			{id: '@id'}, 
+			{ update: {
+				method: 'PUT'
+			},
+		})
+		.update({id: id}, ad);
+	}
+
 var adId = '';
 		function setCurrentAdId(id) {
 			adId = id;
@@ -77,6 +88,7 @@ var adId = '';
 			deleteAd: deleteAd,
 			getAdById: getAdById,
 			setCurrentAdId: setCurrentAdId,
-			getCurrentAdId: getCurrentAdId
+			getCurrentAdId: getCurrentAdId,
+			editAd: editAd
 		}
 })

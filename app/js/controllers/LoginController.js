@@ -10,7 +10,6 @@ app.controller('LoginControlller', function($scope, $rootScope, $location, userD
 				} else {
 					$location.path('/user/profile/show');
 				}
-			//$location.path('/user/profile/show');
 			
 			$rootScope.$broadcast('login', data);
 			

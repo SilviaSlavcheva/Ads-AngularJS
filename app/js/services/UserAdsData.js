@@ -3,7 +3,7 @@
 app.factory('UserAdsData', function($resource, $http, baseServiceUrl, authentication) {
 
 	$http.defaults.headers.common['Authorization'] = authentication.getHeaders().Authorization;
-	console.log("bad:" + authentication.getHeaders().Authorization);
+	//console.log("bad:" + authentication.getHeaders().Authorization);
 
 	var resource = $resource(
 		baseServiceUrl + '/user/ads',
@@ -15,7 +15,7 @@ app.factory('UserAdsData', function($resource, $http, baseServiceUrl, authentica
 
 	function getAllUserAds(params) {
 		$http.defaults.headers.common['Authorization'] = authentication.getHeaders().Authorization;
-		console.log(authentication.getHeaders().Authorization);
+		//console.log(authentication.getHeaders().Authorization);
 		return resource.get(params);
 	}
 

@@ -1,6 +1,6 @@
 <div class="jumbotron"> 
-	<div ng-include="'templates/adminProfile/sidebarNavigation.html'" ></div>
-	<div ng-include="'templates/adminProfile/sidebarAdsNavigation.html'" ></div>
+	<div ng-include="'templates/adminProfile/sidebarNavigation.html'"  ng-controller="AdminHomePageController"></div>
+	<div ng-include="'templates/adminProfile/sidebarAdsNavigation.html'" ng-controller="AdminHomePageController" ></div>
 	<div class="row">
 		<div class="col-md-9">
 			<div ng-include="'templates/adminProfile/adsScreenAdmin.html'" ng-controller="AdminHomePageController"></div>

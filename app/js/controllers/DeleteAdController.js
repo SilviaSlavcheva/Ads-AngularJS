@@ -7,7 +7,6 @@ app.controller('DeleteAdController',
 		.$promise
 		.then(function(data) {
 			$scope.currentAd = data;
-			//console.log(data);
 		}, function(error) {
 			notify.showError('Get user ad failed.', error);
 		});

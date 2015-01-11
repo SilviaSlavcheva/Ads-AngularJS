@@ -46,5 +46,10 @@ app.controller('AdminHomePageController', function($scope, $http, $location,  ba
 		adminData.setCurrentAdId(adId);
 		$location.path('/admin/ads/delete/' + adId);
 	}
+
+	$scope.editAd = function editAd(adId, ad) {
+		adminData.setCurrentAdId(adId);
+		$location.path('/admin/ads/edit/' + adId);
+	}
 	
 });

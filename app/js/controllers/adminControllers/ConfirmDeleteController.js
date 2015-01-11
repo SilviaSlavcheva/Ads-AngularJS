@@ -1,3 +1,5 @@
+'use strict';
+
 app.controller('ConfirmDeleteController', function($scope, adminData, notify) {
 
 	adminData.getAdById(adminData.getCurrentAdId())
@@ -17,4 +19,4 @@ app.controller('ConfirmDeleteController', function($scope, adminData, notify) {
 				notify.showError('Deleted ad failed.');
 			});
 		}
-})
+});

@@ -5,7 +5,6 @@ app.controller('UserAdsController',
 		if (authentication.isLoggedIn()) {
 			$scope.setStatus = function setStatus(status) {
 				UserAdsData.setStatusAd(status);
-				//console.log(status);
 				$rootScope.$broadcast('setStatus', status);
 			};
 
@@ -39,14 +38,12 @@ app.controller('UserAdsController',
 
 			 $scope.editButton = function editButton(adId, ad) {
 			 	UserAdsData.setUserAdId(adId);
-			 	//console.log(UserAdsData.getUserAdId());
 			 	$location.path('user/ads/edit/' + adId);
 			 	 $rootScope.$broadcast('editButton', adId);
 			 }
 
 			 $scope.deleteAd = function deleteAd(adId, ad) {
 				UserAdsData.setUserAdId(adId);
-			 	//console.log(UserAdsData.getUserAdId());
 			 	console.log(adId);
 			 	$location.path('user/ads/delete/' + adId);
 			 	 $rootScope.$broadcast('deleteAd', adId);

@@ -3,12 +3,10 @@
 app.controller('EditAdController', 
 	function($scope, $location, UserAdsData, allCategoriesData, allTownsData, notify) {
 
-	//console.log(UserAdsData.getUserAdId());
 	UserAdsData.getUserAdById(UserAdsData.getUserAdId().id)
 	.$promise
 	.then(function(data) {
 		$scope.currentAd = data;
-		//console.log(data);
 	}, function(error) {
 		notify.showError('get user ad failed.', error);
 	});
@@ -33,11 +31,9 @@ app.controller('EditAdController',
 
 	 
 	$scope.editAd = function editAd(currentAd, editUserAd) {
-		//console.log(currentAd);
 		UserAdsData.editUserAd(currentAd.id, currentAd)
 		.$promise
 		.then(function(data) {
-			//console.log(data);
 			notify.showInfo("Advertisement edited. Don't forget to submit it for publishing.");
 		}, function(error) {
 			notify.showError('Edit user Ad failed.', error);
