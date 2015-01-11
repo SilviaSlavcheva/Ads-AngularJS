@@ -1,1 +1,71 @@
-<div>{{ admin }}</div>
+<div>
+	<ul id="ul" ng-cloak>
+		<li ng-repeat="ad in allAds.ads">
+			<div class="container well">
+				<div class="row">
+					<div class="col-md-9">
+						<h2 class="pull-left">
+							{{ ad.title}}
+						</h2>
+					</div>
+					<div class="col-md-3">
+						<span class="pull-right">
+							{{ad.date | date: 'd-MMM-yyyy'}}
+						</span>
+					</div>
+				</div>
+				<div class="row">
+						<div class="col-md-4">
+							<div class="image-container">
+								<img src="" ng-src="{{ ad.imageDataUrl || defaultImage}}" class="imageSize">
+							</div>
+						</div>
+						<div class="col-md-8">
+							<div class="well">
+								{{ ad.text }}
+							</div>
+							<div class="row"> 
+								<div class="col-md-3 centerDiv">Username: </div>
+								<div class="col-md-7 well well-sm">{{ad.ownerUsername}}</div>
+							</div>
+							<div class="row"> 
+								<div class="col-md-3 centerDiv">Name: </div>
+								<div class="col-md-7 well well-sm">{{ad.ownerName}}</div>
+							</div>
+							<div class="row"> 
+								<div class="col-md-3 centerDiv">Email: </div>
+								<div class="col-md-7 well well-sm">{{ ad.ownerEmail }}</div>
+							</div>
+							<div class="row"> 
+								<div class="col-md-3 centerDiv">Phone: </div>
+								<div class="col-md-7 well well-sm">{{ ad.ownerPhone }}</div>
+							</div>
+							<div class="row"> 
+								<div class="col-md-3 centerDiv">Category: </div>
+								<div class="col-md-7 well well-sm">{{ ad.categoryName || defautCategory}}</div>
+							</div>
+							<div class="row"> 
+								<div class="col-md-3 centerDiv">Town: </div>
+								<div class="col-md-7 well well-sm">{{ ad.townName || defautTown}}</div>
+							</div>
+							<div class="row"> 
+								<div class="col-md-3 centerDiv">Status: </div>
+								<div class="col-md-7 well well-sm">{{ ad.status }}</div>
+							</div>
+							<div class="row">
+								
+								<a href="" class="btn btn-default" ng-click="approveAd(ad.id, ad)">Approve</a>
+							
+								<a href="" class="btn btn-default" ng-click="rejectAd(ad.id, ad)">Reject</a>
+							
+								<a href="" class="btn btn-default" ng-click="editAd(ad.id, ad)">Edit</a>
+
+								<a href="" class="btn btn-default" ng-click="confirmeDeleteAd(ad.id, ad)">Delete</a>
+					
+							</div>
+						</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>

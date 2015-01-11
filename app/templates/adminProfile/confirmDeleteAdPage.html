@@ -1,0 +1,74 @@
+<div class="jumbotron"> 
+	<div ng-include="'templates/adminProfile/sidebarNavigation.html'" ></div>
+	<div class="row">
+		<div class="col-md-9">
+		<div>
+			<ul id="ul" ng-cloak>
+				<li>
+					<div class="container well">
+						<div class="row">
+							<div class="col-md-9">
+								<h2 class="pull-left">
+									{{ currentAd.title}}
+								</h2>
+							</div>
+							<div class="col-md-3">
+								<span class="pull-right">
+									{{currentAd.date | date: 'd-MMM-yyyy'}}
+								</span>
+							</div>
+						</div>
+						<div class="row">
+								<div class="col-md-4">
+									<div class="image-container">
+										<img src="" ng-src="{{ currentAd.imageDataUrl || defaultImage}}" class="imageSize">
+									</div>
+								</div>
+								<div class="col-md-8">
+									<div class="well">
+										{{ currentAd.text }}
+									</div>
+									<div class="row"> 
+										<div class="col-md-3 centerDiv">Username: </div>
+										<div class="col-md-7 well well-sm">{{currentAd.ownerUsername}}</div>
+									</div>
+									<div class="row"> 
+										<div class="col-md-3 centerDiv">Name: </div>
+										<div class="col-md-7 well well-sm">{{currentAd.ownerName}}</div>
+									</div>
+									<div class="row"> 
+										<div class="col-md-3 centerDiv">Email: </div>
+										<div class="col-md-7 well well-sm">{{ currentAd.ownerEmail }}</div>
+									</div>
+									<div class="row"> 
+										<div class="col-md-3 centerDiv">Phone: </div>
+										<div class="col-md-7 well well-sm">{{ currentAd.ownerPhone }}</div>
+									</div>
+									<div class="row"> 
+										<div class="col-md-3 centerDiv">Category: </div>
+										<div class="col-md-7 well well-sm">{{ currentAd.categoryName || defautCategoryText}}</div>
+									</div>
+									<div class="row"> 
+										<div class="col-md-3 centerDiv">Town: </div>
+										<div class="col-md-7 well well-sm">{{ currentAd.townName || defautTownText}}</div>
+									</div>
+									<div class="row"> 
+										<div class="col-md-3 centerDiv">Status: </div>
+										<div class="col-md-7 well well-sm">{{ currentAd.status }}</div>
+									</div>
+									<div class="row">
+										
+										<a href="" class="btn btn-default" ng-click="deleteAd(currentAd.id, ad)">Delete</a>
+									
+										<a href="#/admin/home" class="btn btn-default">Cancel</a>
+							
+									</div>
+								</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+</div>

@@ -66,6 +66,10 @@ app.config(function($routeProvider) {
 		templateUrl: 'templates/adminProfile/homePageAdmin.html',
 		controller: 'AdminHomePageController'
 	});
+	$routeProvider.when('/admin/ads/delete/:id', {
+		templateUrl: 'templates/adminProfile/confirmDeleteAdPage.html',
+		controller: 'ConfirmDeleteController'
+	});
 	$routeProvider.otherwise({redirectTo: '/'});
 });
 
